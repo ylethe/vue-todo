@@ -1,0 +1,74 @@
+<template>
+    <div class="login">
+      <div class="head-img">
+        <img src="../images/headPicture.jpg"/>
+      </div>
+      <form>
+        <div class="form-item">
+          <input placeholder="请输入用户名" type="text" ref="name"/>
+        </div>
+        <div class="form-item">
+          <button>{{ msg }}</button>
+        </div>
+      </form>
+    </div>
+</template>
+<script type="text/ecmascript-6">
+    export default {
+      name: 'login',
+      data () {
+        return {
+          msg: '登录'
+        }
+      }
+    }
+</script>
+
+<style scoped>
+  .login{
+    max-width: 500px;
+    max-height: 550px;
+    margin: 120px auto;
+  }
+  .head-img{
+    width: 100px;
+    height: 100px;
+    margin: 30px auto;
+  }
+  img{
+    width: 100px;
+    height: 100px;
+  }
+  form{
+    width: 80%;
+    height: 200px;
+    margin: 40px auto;
+  }
+  .form-item{
+    width: 100%;
+    height: 42px;
+    margin: 2px auto;
+    line-height: 30px;
+  }
+  input{
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    outline: none;
+  }
+  button{
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 16px;
+    border: 1px solid #42b983;
+    border-radius: 5px;
+    background: #42b983;
+    color: #fff;
+    outline: none;
+  }
+
+</style>
