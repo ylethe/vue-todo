@@ -8,22 +8,25 @@
           <input placeholder="请输入用户名" type="text" ref="name"/>
         </div>
         <div class="form-item">
-          <button>{{ msg }}</button>
+          <button><v-link href="/home">{{ msg }}</v-link></button>
         </div>
       </form>
     </div>
 </template>
-<script type="text/ecmascript-6">
-    export default {
-      name: 'login',
-      data () {
-        return {
-          msg: '登录'
-        }
+<script>
+  import VLink from '../components/VLink.vue'
+  export default {
+    name: 'login',
+    data () {
+      return {
+        msg: '登录'
       }
+    },
+    components: {
+      VLink
     }
+  }
 </script>
-
 <style scoped>
   .login{
     max-width: 500px;
@@ -67,8 +70,11 @@
     border: 1px solid #42b983;
     border-radius: 5px;
     background: #42b983;
-    color: #fff;
     outline: none;
+  }
+  a{
+    color: #fff;
+    text-decoration: none;
   }
 
 </style>

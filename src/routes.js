@@ -6,5 +6,5 @@ export default {
   '/login': 'Login',
   '/home': 'Home',
   '/home/addTodo': 'AddTodo',
-  '/home/TodoList': 'TodoList'
+  '/home/todoList': 'TodoList'
 }
