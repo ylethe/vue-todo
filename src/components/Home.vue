@@ -1,5 +1,6 @@
 <template>
     <div class="home">
+      <Navigation :msg="msg" :path="path"></Navigation>
       <div class="user-content">
         <v-link href="/home/addTodo">添加todo</v-link>
         <v-link href="/home/todoList">todo列表</v-link>
@@ -7,11 +8,19 @@
     </div>
 </template>
 <script>
+  import Navigation from '../components/Nav'
   import VLink from '../components/VLink.vue'
   export default {
     name: 'Home',
     components: {
+      Navigation,
       VLink
+    },
+    data () {
+      return {
+        msg: '用户中心',
+        path: '/login'
+      }
     }
   }
 </script>

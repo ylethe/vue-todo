@@ -1,5 +1,6 @@
 <template>
     <div class="login">
+      <navigation :msg='msg'></navigation>
       <div class="head-img">
         <img src="../images/headPicture.jpg"/>
       </div>
@@ -8,13 +9,14 @@
           <input placeholder="请输入用户名" type="text" ref="name"/>
         </div>
         <div class="form-item">
-          <button><v-link href="/home">{{ msg }}</v-link></button>
+          <button><v-link href="/home">登录</v-link></button>
         </div>
       </form>
     </div>
 </template>
 <script>
   import VLink from '../components/VLink.vue'
+  import Navigation from '../components/Nav'
   export default {
     name: 'login',
     data () {
@@ -23,7 +25,8 @@
       }
     },
     components: {
-      VLink
+      VLink,
+      Navigation
     }
   }
 </script>

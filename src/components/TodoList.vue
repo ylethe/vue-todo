@@ -1,5 +1,6 @@
 <template>
     <div class="todo-list">
+      <navigation :msg="msg" :path="path"></navigation>
       <div class="todo-content">
         <ul>
           <li>
@@ -26,9 +27,19 @@
     </div>
 </template>
 <script>
-    export default {
-      name: 'todoList'
+  import Navigation from '../components/Nav'
+  export default {
+    name: 'todoList',
+    components: {
+      Navigation
+    },
+    data () {
+      return {
+        msg: 'TODO列表',
+        path: '/home'
+      }
     }
+  }
 </script>
 <style scoped>
   .todo-list{
@@ -38,7 +49,7 @@
   .todo-content{
     max-width: 500px;
     max-height: 550px;
-    margin: 10px auto;
+    margin: 80px 0 0 0;
   }
   ul{
     width: 80%;
@@ -106,7 +117,7 @@
   .clear {
     width: 80%;
     height: 40px;
-    margin: 10px auto;
+    margin: 15px auto;
   }
   .clear-btn{
     width: 100%;

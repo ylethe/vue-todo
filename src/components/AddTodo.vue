@@ -1,18 +1,16 @@
 <template>
     <div class="add-todo">
+      <navigation :msg="msg" :path="path"></navigation>
       <div class="operate-content">
         <form>
           <div class="form-item">
-            <label>时间：</label>
-            <input type="text" ref="time"/>
+            <label>时间：</label><input type="text" ref="time"/>
           </div>
           <div class="form-item">
-            <label>标题：</label>
-            <input type="text" ref="todoTitle"/>
+            <label>标题：</label><input type="text" ref="todoTitle"/>
           </div>
           <div class="form-item">
-            <label>内容：</label>
-            <textarea type="text" ref="todoContent"/>
+            <label>内容：</label><textarea type="text" ref="todoContent"/>
           </div>
         </form>
         <div class="operate-item">
@@ -27,9 +25,19 @@
     </div>
 </template>
 <script>
-    export default {
-      name: 'addTodo'
+  import Navigation from '../components/Nav'
+  export default {
+    name: 'addTodo',
+    components: {
+      Navigation
+    },
+    data () {
+      return {
+        msg: '添加TODO',
+        path: '/home'
+      }
     }
+  }
 </script>
 <style scoped>
   .add-todo{
@@ -39,7 +47,7 @@
   .operate-content{
     max-width: 500px;
     max-height: 550px;
-    margin: 0 auto;
+    margin: 80px auto;
     clear: both;
   }
   form{

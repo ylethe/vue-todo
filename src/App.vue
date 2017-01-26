@@ -1,19 +1,15 @@
 <template>
   <div id="app">
-    <navigation></navigation>
     <login></login>
   </div>
 </template>
 
 <script>
 import Login from './components/Login'
-import Navigation from './components/Nav'
-
 export default {
   name: 'app',
   components: {
-    Login,
-    Navigation
+    Login
   }
 }
 </script>
