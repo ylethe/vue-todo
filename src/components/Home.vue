@@ -2,8 +2,8 @@
     <div class="home">
       <Navigation :msg="msg" :path="path"></Navigation>
       <div class="user-content">
-        <v-link href="/home/addTodo">添加todo</v-link>
-        <v-link href="/home/todoList">todo列表</v-link>
+        <router-link to="/home/addTodo">添加todo</router-link>
+        <router-link to="/home/todoList">todo列表</router-link>
       </div>
     </div>
 </template>

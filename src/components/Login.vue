@@ -9,7 +9,7 @@
           <input placeholder="请输入用户名" type="text" ref="name"/>
         </div>
         <div class="form-item">
-          <button><v-link href="/home">登录</v-link></button>
+          <button><router-link to="/home">登录</router-link></button>
         </div>
       </form>
     </div>

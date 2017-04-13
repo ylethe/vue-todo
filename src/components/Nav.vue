@@ -1,6 +1,6 @@
 <template>
   <nav class="navigation">
-    <div class="top-left" v-on:click="go" v-bind:path="path">
+    <div class="top-left" v-on:click="backTo">
       <img src="../images/arrow.png"/>
     </div>
     <div class="title">
@@ -11,23 +11,28 @@
 
 <script>
   import VLink from '../components/VLink.vue'
-  import routes from '../routes'
+  // import VueRouter from '../router/index'
+
   export default {
     name: 'navigation',
-    props: ['msg', 'path'],
+    props: ['msg'],
     replace: true,
     components: {
       VLink
     },
     methods: {
-      go (e) {
+      backTo (e) {
         e.preventDefault()
-       // this.$route.router.go(path)
-        window.history.pushState(
-          null,
-          routes[this.path],
-          this.path
-        )
+        console.log(this.$route.path)
+        if (this.$route.path === '/home') {
+          VueRouter.push({path:'/login'})
+        }
+        else if (this.$route.path === '/home/addTodo') {
+          VueRouter.push({path:'/home'})
+        }
+        else if (this.$route.path === '/home/todoList') {
+          VueRouter.push({path:'/home'})
+        }
       }
     }
   }

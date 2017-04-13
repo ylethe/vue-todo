@@ -1,40 +1,80 @@
 <template>
     <div class="add-todo">
-      <navigation :msg="msg" :path="path"></navigation>
+      <navigation :msg="msg"></navigation>
       <div class="operate-content">
         <form>
           <div class="form-item">
-            <label>时间：</label><input type="text" ref="time"/>
+            <label>时间：</label><input type="text" v-model="time"/>
           </div>
           <div class="form-item">
-            <label>标题：</label><input type="text" ref="todoTitle"/>
+            <label>标题：</label><input type="text" v-model="title"/>
           </div>
           <div class="form-item">
-            <label>内容：</label><textarea type="text" ref="todoContent"/>
+            <label>内容：</label><textarea type="text" v-model="content"></textarea>
           </div>
         </form>
         <div class="operate-item">
           <div class="operate-btn" id="add">
-            <button>添加</button>
+            <button @click="addTodo">添加</button>
           </div>
           <div class="operate-btn" id="cancel">
-            <button>取消</button>
+            <button @click="cancel">取消</button>
           </div>
         </div>
+        <message :tip="tip" :isMsg="isMsg"></message>
       </div>
     </div>
 </template>
 <script>
+  const date=/^(^(\d{4}|\d{2})(\-|\/|\.)\d{1,2}\3\d{1,2}$)|(^(\d{2})(\-|\/|\.)\d{1,2}\3\d{1,2}$)|(^\d{4}年\d{1,2}月\d{1,2}日$)|(^\d{1,2}月\d{1,2}日$)$/
   import Navigation from '../components/Nav'
+  import Message from '../components/Msg.vue'
   export default {
     name: 'addTodo',
     components: {
-      Navigation
+      Navigation,
+      Message
     },
     data () {
       return {
         msg: '添加TODO',
-        path: '/home'
+        isMsg: false,
+        tip: '',
+        time: '',
+        title: '',
+        content: ''
+      }
+    },
+    methods: {
+      cancel (e) {
+        e.preventDefault()
+        this.time = ''
+        this.title = ''
+        this.content = ''
+      },
+      addTodo (e) {
+        e.preventDefault()
+        if(this.time === ""){
+          this.tip = "时间不能为空"
+          this.isMsg = true
+          setTimeout(()=>{this.isMsg = false},1500)
+        }
+        else if(this.title === ""){
+          this.tip = "标题不能为空"
+          this.isMsg = true
+          setTimeout(()=>{this.isMsg = false},1500)
+        }
+        else if(this.content === ""){
+          this.tip = "内容不能为空"
+          this.isMsg = true
+          setTimeout(()=>{this.isMsg = false},1500)
+        }
+        else if(!date.test(this.time)){
+          this.tip = "时间格式不对"
+          this.isMsg = true
+          setTimeout(()=>{this.isMsg = false},1500)
+        }
+        console.log('tianjia')
       }
     }
   }
@@ -80,6 +120,10 @@
     width: 130px;
     height: 32px;
     margin: 0 auto;
+  }
+  label{
+    text-align: left;
+    padding-left: 5px;
   }
   button{
     width: 100%;
