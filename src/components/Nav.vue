@@ -11,7 +11,7 @@
 
 <script>
   import VLink from '../components/VLink.vue'
-  // import VueRouter from '../router/index'
+  import VueRouter from '../router/index'
 
   export default {
     name: 'navigation',
