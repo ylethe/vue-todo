@@ -6,16 +6,16 @@
       </div>
       <form>
         <div class="form-item">
-          <input placeholder="请输入用户名" type="text" ref="name"/>
+          <input placeholder="请输入用户名" type="text"/>
         </div>
         <div class="form-item">
-          <button><router-link to="/home">登录</router-link></button>
+          <button><router-link to="home">登录</router-link></button>
         </div>
       </form>
     </div>
 </template>
 <script>
-  import VLink from '../components/VLink.vue'
+  //import VLink from '../components/VLink.vue'
   import Navigation from '../components/Nav'
   export default {
     name: 'login',
@@ -25,7 +25,6 @@
       }
     },
     components: {
-      VLink,
       Navigation
     }
   }

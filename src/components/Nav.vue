@@ -1,6 +1,6 @@
 <template>
   <nav class="navigation">
-    <div class="top-left" v-on:click="backTo">
+    <div class="top-left" @click="backTo">
       <img src="../images/arrow.png"/>
     </div>
     <div class="title">
@@ -11,7 +11,6 @@
 
 <script>
   import VLink from '../components/VLink.vue'
-  import VueRouter from '../router/index'
 
   export default {
     name: 'navigation',
@@ -25,13 +24,13 @@
         e.preventDefault()
         console.log(this.$route.path)
         if (this.$route.path === '/home') {
-          VueRouter.push({path:'/login'})
+          this.$router.push({path:'login'})
         }
         else if (this.$route.path === '/home/addTodo') {
-          VueRouter.push({path:'/home'})
+          this.$router.push({path:'/home'})
         }
         else if (this.$route.path === '/home/todoList') {
-          VueRouter.push({path:'/home'})
+          this.$router.push({path:'/home'})
         }
       }
     }
@@ -41,9 +40,9 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 nav{
-   position:fixed;
    width: 100%;
    height: 50px;
+   position: fixed;
    top: 0;
    left: 0;
    background: #42b983;

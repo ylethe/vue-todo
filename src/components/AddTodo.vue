@@ -26,6 +26,7 @@
     </div>
 </template>
 <script>
+  let that
   const date=/^(^(\d{4}|\d{2})(\-|\/|\.)\d{1,2}\3\d{1,2}$)|(^(\d{2})(\-|\/|\.)\d{1,2}\3\d{1,2}$)|(^\d{4}年\d{1,2}月\d{1,2}日$)|(^\d{1,2}月\d{1,2}日$)$/
   import Navigation from '../components/Nav'
   import Message from '../components/Msg.vue'
@@ -36,6 +37,7 @@
       Message
     },
     data () {
+      that = this
       return {
         msg: '添加TODO',
         isMsg: false,
@@ -48,33 +50,43 @@
     methods: {
       cancel (e) {
         e.preventDefault()
-        this.time = ''
-        this.title = ''
-        this.content = ''
+        that.time = ''
+        that.title = ''
+        that.content = ''
       },
       addTodo (e) {
         e.preventDefault()
-        if(this.time === ""){
-          this.tip = "时间不能为空"
-          this.isMsg = true
-          setTimeout(()=>{this.isMsg = false},1500)
+        if(that.time === ""){
+          that.tip = "时间不能为空"
+          that.isMsg = true
+          setTimeout(()=>{that.isMsg = false},1500)
         }
-        else if(this.title === ""){
-          this.tip = "标题不能为空"
-          this.isMsg = true
-          setTimeout(()=>{this.isMsg = false},1500)
+        else if(that.title === ""){
+          that.tip = "标题不能为空"
+          that.isMsg = true
+          setTimeout(()=>{that.isMsg = false},1500)
         }
-        else if(this.content === ""){
-          this.tip = "内容不能为空"
-          this.isMsg = true
-          setTimeout(()=>{this.isMsg = false},1500)
+        else if(that.content === ""){
+          that.tip = "内容不能为空"
+          that.isMsg = true
+          setTimeout(()=>{that.isMsg = false},1500)
         }
-        else if(!date.test(this.time)){
-          this.tip = "时间格式不对"
-          this.isMsg = true
-          setTimeout(()=>{this.isMsg = false},1500)
+        else if(!date.test(that.time)){
+          that.tip = "时间格式不对"
+          that.isMsg = true
+          setTimeout(()=>{that.isMsg = false},1500)
         }
-        console.log('tianjia')
+        else{
+          let todo = {
+            time: that.time,
+            title: that.title,
+            content: that.content
+          }
+          that.tip = "添加成功"
+          that.isMsg = true
+          setTimeout(()=>{that.isMsg = false},1500)
+          that.$store.commit('ADD_TODO',todo)
+        }
       }
     }
   }

@@ -3,30 +3,23 @@
       <navigation :msg="msg" :path="path"></navigation>
       <div class="todo-content">
         <ul>
-          <li>
-            <div class="time">todo.time</div>
-            <div class="title">{todo.title}</div>
+          <li v-for="list in todos">
+            <div class="time">{{list.time}}</div>
+            <div class="title">{{list.title}}</div>
             <div class="content">内容
-              <div class="show-content">{todo.content}</div>
+              <div class="show-content">{{list.content}}</div>
             </div>
-            <button class="complete">完成</button>
-          </li>
-          <li>
-            <div class="time">{todo.time}</div>
-            <div class="title">{todo.title}</div>
-            <div class="content">内容
-              <div class="show-content">{todo.content}</div>
-            </div>
-            <button class="complete">完成</button>
+            <button class="complete" @click="completeTodo(0)">完成</button>
           </li>
         </ul>
       </div>
       <div class="clear">
-        <button class="clear-btn">清空</button>
+        <button class="clear-btn" @click="deleteTodo">清空</button>
       </div>
     </div>
 </template>
 <script>
+  let that
   import Navigation from '../components/Nav'
   export default {
     name: 'todoList',
@@ -34,9 +27,21 @@
       Navigation
     },
     data () {
+      that = this
       return {
+        todos: that.$store.state.todos,
         msg: 'TODO列表',
         path: '/home'
+      }
+    },
+    methods:{
+      deleteTodo () {
+        console.log("ndslfs")
+        console.log(that.$store.state.todos)
+        that.$store.commit('DELETE_TODO')
+      },
+      completeTodo(index){
+        that.$store.commit('COMPLETE_TODO',index)
       }
     }
   }
@@ -49,7 +54,7 @@
   .todo-content{
     max-width: 500px;
     max-height: 550px;
-    margin: 80px 0 0 0;
+    margin: 0 auto
   }
   ul{
     width: 80%;
