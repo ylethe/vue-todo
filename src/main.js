@@ -4,7 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import store from './vuex/store'
 import router from './router/index'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 
+Vue.use(VueAwesomeSwiper)
 /* eslint-disable no-new */
 new Vue({
   store,

@@ -8,6 +8,7 @@ import Login from '../components/Login.vue'
 import Home from '../components/Home.vue'
 import AddTodo from '../components/AddTodo.vue'
 import TodoList from '../components/TodoList.vue'
+import SwiperExample from '../components/swiperExample.vue'
 
 Vue.use(Router)
 export default new Router({
@@ -16,7 +17,8 @@ export default new Router({
     { path: '/login', component: Login },
     { path: '/home', component: Home },
     { path: '/home/addTodo', component: AddTodo },
-    { path: '/home/todoList', component: TodoList }
+    { path: '/home/todoList', component: TodoList },
+    { path: '/home/swiper', component: SwiperExample}
     ]
 })
 
