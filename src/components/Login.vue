@@ -2,7 +2,7 @@
     <div class="login">
       <navigation :msg='msg'></navigation>
       <div class="head-img">
-        <img src="../images/headPicture.jpg"/>
+        <img src="http://oia85104s.bkt.clouddn.com/headPicture.c68fb85.jpg"/>
       </div>
       <form>
         <div class="form-item">

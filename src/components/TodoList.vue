@@ -3,13 +3,13 @@
       <navigation :msg="msg" :path="path"></navigation>
       <div class="todo-content">
         <ul>
-          <li v-for="list in todos">
+          <li v-for="(list,index) in todos">
             <div class="time">{{list.time}}</div>
             <div class="title">{{list.title}}</div>
             <div class="content">内容
               <div class="show-content">{{list.content}}</div>
             </div>
-            <button class="complete" @click="completeTodo(0)">完成</button>
+            <button class="complete" @click="completeTodo(`${index}`)">完成</button>
           </li>
         </ul>
       </div>
