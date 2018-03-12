@@ -10,6 +10,7 @@ import AddTodo from '../components/AddTodo.vue'
 import TodoList from '../components/TodoList.vue'
 import SwiperExample from '../components/swiperExample.vue'
 import Transition from '../components/transition.vue'
+import ImgEditor from '../components/imgEditor/index.vue'
 
 Vue.use(Router)
 export default new Router({
@@ -20,7 +21,8 @@ export default new Router({
     { path: '/home/addTodo', component: AddTodo },
     { path: '/home/todoList', component: TodoList },
     { path: '/home/swiper', component: SwiperExample},
-    { path: '/home/transition', component: Transition}
+    { path: '/home/transition', component: Transition},
+    { path: '/img-editor', component: ImgEditor }
     ]
 })
 
