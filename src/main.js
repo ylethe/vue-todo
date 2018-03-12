@@ -16,4 +16,4 @@ new Vue({
   components: {App},
   render: (createElement) => createElement(App)
 }).$mount('#app')
-router.push({ path: '/login' })
+// router.push({ path: '/login' })
